@@ -14,12 +14,11 @@ Pour run l'image (dans notre cas inutile.)
 
 
 ## docker automate
-> Chaque automate possède une image docker.
-
 Il faut apres avoir build l'image automatisation build l'image de l'automate.
 
 TODO:
-Faire un choix. soit utilise une seul image automate
+Faire un choix. 
+> soit on utilise une seul image automate
 
 et donc pour run une image on fait `docker run automate:308`
 ou 308 est le tag de automate. MAIS si on fait 
@@ -29,7 +28,7 @@ il va run le dernier automate build... déliquat.
 `docker build -t automate:308 -f Dockerfile-automatisation . `
 
 L'autre solution serait de build une image par automate.
-
+> Chaque automate possède une image docker.
 
 `docker run automate-308`
 `docker run automate-308:latest`
