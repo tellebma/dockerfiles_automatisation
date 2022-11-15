@@ -4,5 +4,9 @@ WORKDIR  /usr/src/app/
 RUN git clone https://gitlab.tech.orange/automatisation-rtc/automate-308-py automate
 RUN source venv/bin/activate
 WORKDIR  /usr/src/app/automate
+
+ENV ENV_AUTO_PROD="production"
+ENV CUID = "none"
+
 ENTRYPOINT [ "python" ]
 CMD [ "main.py" ]

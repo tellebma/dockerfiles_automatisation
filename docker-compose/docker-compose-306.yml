@@ -1,0 +1,7 @@
+version: '3'
+services:
+  automate:
+    container_name: automate-306-py
+    image: 'automate:306'
+    volumes:
+      - ./local-file/automate-306:/automate/
