@@ -1,0 +1,8 @@
+FROM automatisation:latest
+WORKDIR  /usr/src/app/
+# RUN git clone URL_depot_automate
+RUN git clone https://gitlab.tech.orange/automatisation-rtc/automate-308-py automate
+RUN source venv/bin/activate
+WORKDIR  /usr/src/app/automate
+ENTRYPOINT [ "python" ]
+CMD [ "main.py" ]

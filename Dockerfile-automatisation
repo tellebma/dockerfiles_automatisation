@@ -9,12 +9,11 @@ WORKDIR /usr/src/app/venv/
 
 # clone gitlabs dep projects.
 #
-# RUN git clone URL_librairie &&\
-#     git clone URL_automate_py &&\
-#     git clone URL_dependances &&\
-#     chmod +x URL_dependances/script/prepare.sh && \
-#     /URL_dependances/script/prepare.sh
-
+RUN git clone https://gitlab.tech.orange/automatisation-rtc/URL_librairie &&\
+    git clone https://gitlab.tech.orange/automatisation-rtc/URL_automate_py &&\
+    git clone https://gitlab.tech.orange/automatisation-rtc/URL_dependances &&\
+    chmod +x URL_dependances/script/prepare.sh && \
+    /URL_dependances/script/prepare.sh
 
 ENV ENV_AUTO_PROD="production"
 ENV CUID = "none"
