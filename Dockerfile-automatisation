@@ -1,19 +1,16 @@
 FROM python:3.10-alpine
 LABEL maintainer="maxime.bellet@orange.com"
-
-RUN apk update && apk add git
 WORKDIR /usr/src/app
-RUN python3 -m venv venv
+RUN apk update && apk add git &&\
+    python3 -m venv venv
 
-WORKDIR /usr/src/app/venv/
+WORKDIR /usr/src/app/venv/lib/python3.10/site-packages/
 
 # clone gitlabs dep projects.
 #
-RUN git clone https://gitlab.tech.orange/automatisation-rtc/URL_librairie &&\
-    git clone https://gitlab.tech.orange/automatisation-rtc/URL_automate_py &&\
-    git clone https://gitlab.tech.orange/automatisation-rtc/URL_dependances &&\
-    chmod +x URL_dependances/script/prepare.sh && \
-    /URL_dependances/script/prepare.sh
-
+RUN git clone https://gitlab.tech.orange/automatisation-rtc/dependances-python &&\
+    git clone https://gitlab.tech.orange/automatisation-rtc/librairie_rtc  &&\
+    git clone https://gitlab.tech.orange/automatisation-rtc/package_automate_py  &&\
+    cp -r .\dependances-python\venv_lib_automatisation\* .. 
 
 WORKDIR  /usr/src/app/
